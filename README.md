@@ -1,5 +1,17 @@
 #【L100相当】S3バケット構築ハンズオン
 
+```
+ aws-l100-s3
+    ├── README.md
+    ├── main.tf
+    ├── output.tf
+    ├── terraform.tfstate
+    ├── terraform.tfstate.backup
+    ├── terraform.tfvars
+    ├── variables.tf
+    └── versions.tf
+ ```
+
 ##  手順
 1.変数ファイル  terraform.tfvarsを作成し、バケット名を指定(グローバルに一意)
     bucket_name "好きな名前の一意のS3バケット名
@@ -40,3 +52,14 @@
 
 9.GitHubに新規リポジトリ作成　(aws-l100-s3-createの部分は変更)
 gh repo create aws-l100-s3-create --public
+
+10.Git管理を開始しGitHubにアップロード
+
+cd /home/wsl/aws-terraform-project/S3バケット作成/aws-l100-s3  # プロジェクトディレクトリへ移動
+
+git init                       # ★ ここでGitリポジトリ初期化
+git add .                      # ファイルをすべてステージ
+git commit -m "Initial commit" # 最初のコミット
+git remote add origin https://github.com/【あなたのユーザー名】/aws-l100-s3-create.git
+git branch -M main
+git push -u origin main        # GitHubへアップロード
