@@ -31,10 +31,12 @@
     bucket_name "好きな名前の一意のS3バケット名
 
 2.初期化と実行
+```
     terraform init
     terraform validate
     terraform plan
     terraform apply
+```    
 
 3.作成後、AWSコンソールでS3バケットの作成ができてるか確認
 
@@ -71,13 +73,14 @@ gh repo create aws-l100-s3-create --public
 
 cd /home/wsl/aws-terraform-project/S3バケット作成/aws-l100-s3  # プロジェクトディレクトリへ移動
 
+```
 git init                       # ★ ここでGitリポジトリ初期化
 git add .                      # ファイルをすべてステージ
 git commit -m "Initial commit" # 最初のコミット
 git remote add origin https://github.com/【あなたのユーザー名】/aws-l100-s3-create.git
 git branch -M main
 git push -u origin main        # GitHubへアップロード
-
+```
 
 11.README内にディレクトリツリーをつくるために、treeコマンドのインストールをしておきましょう。
 
