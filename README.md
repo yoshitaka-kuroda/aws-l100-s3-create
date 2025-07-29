@@ -13,6 +13,20 @@
  ```
 
 ##  手順
+
+0.aws configureをしてIAMユーザーを認識させましょう。
+    aws configure
+
+    AWS Access Key ID : コンソールで作成したIAMユーザーで確認したものを入力
+    AWS Secret Access Key :　IAMユーザー作成時のみしか表示されないシークレットを入力(作成時しか確認できないのでなくさないように)　 
+    Default region name :ap-northeast-1   東京リージョンで入力 
+    Default output format :json     jsonで指定が推奨(王道)
+
+　　---------------
+    
+    aws sts get-caller-identity　　このコマンドで正しくconfigureできてるか確認
+
+
 1.変数ファイル  terraform.tfvarsを作成し、バケット名を指定(グローバルに一意)
     bucket_name "好きな名前の一意のS3バケット名
 
@@ -63,3 +77,27 @@ git commit -m "Initial commit" # 最初のコミット
 git remote add origin https://github.com/【あなたのユーザー名】/aws-l100-s3-create.git
 git branch -M main
 git push -u origin main        # GitHubへアップロード
+
+
+11.README内にディレクトリツリーをつくるために、treeコマンドのインストールをしておきましょう。
+
+sudo apt update
+sudo apt install tree
+
+インストール完了後下記を実行
+
+tree -a -L 2
+
+特定のディレクトリだけツリー化したい場合：
+tree aws-l100-s3-create -L 2
+
+
+12.(その他)　アップデートしたファイルがあったら、コミットしてプッシュして上書きしましょう。
+git add README.md       README.md部分はピンポイントでアップデートしたものがあれば指定　ない場合はgit add でOK
+git commit -m "update README"　　こちらも上記同様
+git push origin main
+
+複数ファイルを編集していて全部アップデートしたいときは
+git add .                # すべての変更ファイルをステージング
+git commit -m "まとめて更新"  # 変更内容をコミット（コメントは分かりやすく）
+git push origin main     # リモート（GitHub）に反映
